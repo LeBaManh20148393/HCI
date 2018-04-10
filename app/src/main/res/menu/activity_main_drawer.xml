@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_tuoicay"
+            android:title="Tưới Cây" />
+        <item
+            android:id="@+id/nav_bando"
+            android:title="Bản Đồ" />
+        <item
+            android:id="@+id/nav_bonnuoc"
+            android:title="Quản Lý Bồn Nước" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_nhac"
+                android:title="Thư Viện Nhạc" />
+            <item
+                android:id="@+id/nav_giaitri"
+                android:title="Giải Trí" />
+        </menu>
+    </item>
+
+</menu>
