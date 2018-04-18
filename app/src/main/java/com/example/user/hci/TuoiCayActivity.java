@@ -22,8 +22,10 @@ public class TuoiCayActivity extends AppCompatActivity {
     private Spinner ChonCay;
     private Button Tuoi;
     private TextView thongbao;
+    Integer keyword;
+    String getlulieu;
 
-    final String arr[]={"Cây số 1","Cây số 2","Cây số 3","Cây số 4","Cây số 5","Cây số 6"};
+    final String arr[] = {"Cây số 1", "Cây số 2", "Cây số 3", "Cây số 4", "Cây số 5", "Cây số 6"};
     ArrayList<String> arrDone;
 
 
@@ -34,14 +36,14 @@ public class TuoiCayActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         addView();
-        //laydulieuMaps();
         arrDone = new ArrayList<String>();
-        arrDone.add("");
-        ArrayAdapter<String>adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,arr);
-          final ArrayAdapter<String>adapter1 = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,arrDone);
+        final ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrDone);
+        DanhSachCay.setAdapter(adapter1);
+        //arrDone.add("");
+        laydulieuMaps();
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arr);
         adapter.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
         ChonCay.setAdapter(adapter);
-        DanhSachCay.setAdapter(adapter1);
         ChonCay.setOnItemSelectedListener(new MyProcessEvent());
         Tuoi.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,27 +57,27 @@ public class TuoiCayActivity extends AppCompatActivity {
 
     }
 
-    private void laydulieuMaps() {
+    public void laydulieuMaps() {
         Intent callerIntent = getIntent();
         Bundle getBundle = callerIntent.getBundleExtra("MyPackage");
-        String getlulieu = getBundle.getString("dulieu");
+        getlulieu = getBundle.getString("dulieu");
         arrDone.add(getlulieu);
-
     }
 
     private void addView() {
-        DanhSachCay = (ListView)findViewById(R.id.lv_listtree);
-        ChonCay = (Spinner)findViewById(R.id.sp_danhsachcay);
-        Tuoi = (Button)findViewById(R.id.btn_tuoi);
-        thongbao = (TextView)findViewById(R.id.tv_checked);
+        DanhSachCay = (ListView) findViewById(R.id.lv_listtree);
+        ChonCay = (Spinner) findViewById(R.id.sp_danhsachcay);
+        Tuoi = (Button) findViewById(R.id.btn_tuoi);
+        thongbao = (TextView) findViewById(R.id.tv_checked);
     }
 
     private class MyProcessEvent implements AdapterView.OnItemSelectedListener {
         public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
             thongbao.setText(arr[arg2]);
-    }
+        }
 
         public void onNothingSelected(AdapterView<?> arg0) {
             thongbao.setText("");
         }
-    }}
+    }
+}

@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 
 public class MapsActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView Cay1, Cay2, Cay3;
+    private ImageView BackGround;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +29,17 @@ public class MapsActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void addView() {
+        Typeface font = Typeface.createFromAsset(getAssets(), "fa-solid-900.ttf");
         Cay1 = (TextView)findViewById(R.id.tv_cay1);
         Cay2 = (TextView)findViewById(R.id.tv_cay2);
         Cay3 = (TextView)findViewById(R.id.tv_cay3);
+        Cay1.setTypeface(font);
+        Cay2.setTypeface(font);
+        Cay3.setTypeface(font);
+        Cay1.setText("\uf1bb");
+        Cay2.setText("\uf1bb");
+        Cay3.setText("\uf1bb");
+
         Cay1.setOnClickListener(this);
         Cay2.setOnClickListener(this);
         Cay3.setOnClickListener(this);
